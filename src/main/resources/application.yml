@@ -1,3 +1,12 @@
 spring:
   application:
     name: dh
+springdoc:
+  api-docs:
+    # default: /v3/api-docs
+    path: /api-docs
+  swagger-ui:
+    # 访问路径
+    path: swagger-ui-custom.html
+    # 是否开启 非prod -> true, prod -> false
+    enabled: true
