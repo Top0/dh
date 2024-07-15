@@ -1,3 +1,4 @@
+#https://github.com/redisson/redisson/wiki/2.-Configuration
 singleServerConfig:
   idleConnectionTimeout: 10000
   connectTimeout: 10000
