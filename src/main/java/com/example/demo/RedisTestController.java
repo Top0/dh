@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.entity.Car;
+import com.example.demo.entity.Person;
 import jakarta.annotation.Resource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -22,6 +24,20 @@ public class RedisTestController {
         ValueOperations valueOperations = redisTemplate.opsForValue();
         valueOperations.set(key, value);
         return value;
+    }
+
+    @GetMapping("/person/{key}")
+    public Object queryPerson(@PathVariable String key) {
+        ValueOperations valueOperations = redisTemplate.opsForValue();
+        return valueOperations.get(key);
+    }
+
+    @PutMapping("/person")
+    public Object addPerson(@RequestParam String key, @RequestParam int value) {
+        ValueOperations valueOperations = redisTemplate.opsForValue();
+        Person person = Person.builder().age(value).name(key).car(Car.builder().carType("cat-t").price(value).build()).build();
+        valueOperations.set(key, person);
+        return person;
     }
 
 }
