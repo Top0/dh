@@ -1,3 +1,8 @@
 spring:
   application:
     name: dh
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${dh.mysql.url}/${dh.mysql.name}?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: ${dh.mysql.user}
+    password: ${dh.mysql.password}
