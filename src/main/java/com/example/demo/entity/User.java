@@ -1,15 +1,32 @@
 package com.example.demo.entity;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Builder;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.example.demo.common.GradeEnum;
 import lombok.Data;
 
-@Data
-@Builder
-public class User {
-    @Schema(description = "用户名称")
-    private String name;
+import java.time.LocalDateTime;
 
-    @Schema(description = "用户年龄",maximum = "100")
-    private int age;
+@Data
+public class User {
+    private Long id;
+    private String name;
+    private Integer age;
+    private String email;
+    private GradeEnum grade; // 年级
+
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
+
+    public User(long l, String test) {
+        this.id = l;
+        this.name = test;
+    }
+
+    public User() {
+    }
+
+
 }
