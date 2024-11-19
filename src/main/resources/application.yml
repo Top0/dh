@@ -1,6 +1,9 @@
 spring:
   application:
     name: dh
+  redis:
+    redisson:
+      file: classpath:redisson.yml
 springdoc:
   api-docs:
     # default: /v3/api-docs
