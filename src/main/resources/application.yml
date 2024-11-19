@@ -13,8 +13,3 @@ springdoc:
     path: swagger-ui-custom.html
     # 是否开启 非prod -> true, prod -> false
     enabled: true
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${dh.mysql.url}/${dh.mysql.name}?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
-    username: ${dh.mysql.user}
-    password: ${dh.mysql.password}

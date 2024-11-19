@@ -5,10 +5,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 文档：
- * https://github.com/redisson/redisson/wiki/1.-Overview
- * 使用示例：
- * https://github.com/redisson/redisson-examples/tree/master
+ * api文档：openapi
+ * mysql操作：mybatisPlus
+ * redis使用：redisson
+ * kafka使用
+ * 日志配置
+ *
  */
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")

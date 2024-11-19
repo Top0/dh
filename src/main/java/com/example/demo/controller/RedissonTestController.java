@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import com.example.demo.entity.Car;
 import com.example.demo.entity.Person;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@RestController
+@RestController("/redis")
 public class RedissonTestController {
 
     @Resource
