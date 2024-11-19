@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class OpenApiController {
-
     @Operation(summary = "新建用户")
     @PostMapping()
     public User add(@RequestBody User user) {
@@ -25,14 +24,12 @@ public class OpenApiController {
         return User.builder().name(id).age(18).build();
     }
 
-
     @Operation(summary = "修改用户")
     @PutMapping()
     public User update(@RequestBody User user) {
         user.setAge(9999);
         return user;
     }
-
     @Operation(summary = "获取单个用户信息")
     @GetMapping("/{id}")
     public User getUser(@PathVariable String id) {

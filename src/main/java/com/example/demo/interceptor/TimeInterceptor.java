@@ -34,5 +34,7 @@ public class TimeInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         log.info("耗时：{} 毫秒", Duration.between(start.get(), end.get()).getNano() / 1000000);
+        start.remove();
+        end.remove();
     }
 }

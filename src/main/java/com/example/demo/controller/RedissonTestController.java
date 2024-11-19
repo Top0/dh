@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 @RestController("/redis")
 public class RedissonTestController {
-
     @Resource
     RedissonClient redissonClient;
 
