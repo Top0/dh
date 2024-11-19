@@ -2,7 +2,7 @@ package com.example.demo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.example.demo.common.GradeEnum;
+import com.example.demo.common.enums.GradeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

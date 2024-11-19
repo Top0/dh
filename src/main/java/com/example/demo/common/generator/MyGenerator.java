@@ -1,4 +1,4 @@
-package com.example.demo.generator;
+package com.example.demo.common.generator;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;

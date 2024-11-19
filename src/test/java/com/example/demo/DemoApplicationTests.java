@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.batch.MybatisBatch;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.example.demo.common.GradeEnum;
+import com.example.demo.common.enums.GradeEnum;
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 import org.apache.ibatis.session.ResultContext;
