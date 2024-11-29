@@ -56,11 +56,13 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志归档路径以及格式 -->
             <fileNamePattern>${log.path}/info/log-rolling-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <!--归档日志文件保留的最大数量-->
+            <!--保留15天-->
             <maxHistory>15</maxHistory>
-
+            <!-- 最大日志文件总大小 -->
+            <totalSizeCap>200KB</totalSizeCap>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>1KB</maxFileSize>
+                <checkIncrement>1000</checkIncrement>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
 
@@ -70,7 +72,7 @@
     <springProfile name="default">
         <logger name="com.example" level="INFO">
             <appender-ref ref="CONSOLE"/>
-            <appender-ref ref="FILE"/>
+            <appender-ref ref="ROLLING_FILE"/>
         </logger>
     </springProfile>
     <!-- 开发环境和测试环境 -->
