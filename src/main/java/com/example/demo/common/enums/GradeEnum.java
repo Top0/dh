@@ -15,6 +15,6 @@ public enum GradeEnum {
     @EnumValue // 标记数据库存的值是code
     private final int code;
 
-    @JsonValue
+    @JsonValue  // 转为json时的值
     private final String description;
 }

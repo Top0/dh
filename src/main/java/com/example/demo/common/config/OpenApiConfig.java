@@ -1,18 +1,25 @@
 package com.example.demo.common.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// http://127.0.0.1:8080/swagger-ui/index.html
 @Configuration
 public class OpenApiConfig {
     @Bean
-    public OpenAPI springOpenAPI() {
-        return new OpenAPI().info(new Info()
-                .title("SpringDoc API Demo") //项目title
-                .description("SpringDoc Simple Application Demo") //项目描述
-                .version("1.0.0")); //接口版本
+    public OpenAPI openAPI() {
+        return new OpenAPI()
+                .info(new Info() // 基本信息配置
+                        .title("xxxApi接口文档") // 标题
+                        .description("xxx接口服务...") // 描述Api接口文档的基本信息
+                        .version("v1.0.0") // 版本
+                        // 设置OpenAPI文档的联系信息，包括联系人姓名为"patrick"，邮箱为"patrick@gmail.com"。
+                        .contact(new Contact().name("hhh").email("xxxxxxxxqq.com"))
+                        // 设置OpenAPI文档的许可证信息，包括许可证名称为"Apache 2.0"，许可证URL为"http://springdoc.org"。
+                        .license(new License().name("Apache 2.0").url("http://springdoc.org"))
+                );
     }
 }
