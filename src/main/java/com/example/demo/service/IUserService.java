@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.common.dto.PageParam;
+import com.example.demo.common.response.Sheet;
 import com.example.demo.entity.User;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
  */
 public interface IUserService extends IService<User> {
     List<User> queryAdultUser();
+    Sheet<User> pageUser(PageParam pageParam);
 
     void updateUser();
 
