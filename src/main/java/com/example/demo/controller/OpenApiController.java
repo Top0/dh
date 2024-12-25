@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.common.RetResult;
+import com.example.demo.common.response.RetResult;
 import com.example.demo.entity.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

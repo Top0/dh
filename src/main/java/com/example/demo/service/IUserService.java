@@ -15,4 +15,8 @@ import java.util.List;
  */
 public interface IUserService extends IService<User> {
     List<User> queryAdultUser();
+
+    void updateUser();
+
+    void updateUserName();
 }

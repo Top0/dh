@@ -1,4 +1,4 @@
-package com.example.demo.common;
+package com.example.demo.common.response;
 
 import com.example.demo.common.exception.BusinessException;
 import com.example.demo.common.exception.RetCode;

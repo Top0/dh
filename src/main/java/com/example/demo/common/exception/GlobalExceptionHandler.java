@@ -1,6 +1,6 @@
 package com.example.demo.common.exception;
 
-import com.example.demo.common.RetResult;
+import com.example.demo.common.response.RetResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
