@@ -1,8 +1,10 @@
 package com.example.demo.common.interceptor;
 
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -25,9 +27,9 @@ import java.util.List;
  */
 @Configuration
 public class WebConfigurer implements WebMvcConfigurer {
-    @Autowired
+    @Resource
     LogInterceptor logInterceptor;
-    @Autowired
+    @Resource
     TimeInterceptor timeInterceptor;
 
     @Override
@@ -47,5 +49,23 @@ public class WebConfigurer implements WebMvcConfigurer {
         // order 数字越小，越优先
         registry.addInterceptor(logInterceptor).order(-1).excludePathPatterns(patterns);
         registry.addInterceptor(timeInterceptor).order(-2).excludePathPatterns(patterns);
+    }
+
+    /**
+     * 配置过滤器
+     */
+    @Bean
+    public FilterRegistrationBean<RequestBodyWrapperFilter> addRequestBodyWrapperFilter() {
+        FilterRegistrationBean<RequestBodyWrapperFilter> bean = new FilterRegistrationBean<>();
+        bean.setFilter(getRequestBodyWrapperFilter());
+        bean.addUrlPatterns("/*"); // 拦截所有的资源
+        //bean.addUrlPatterns(WebConstant.API + "/*"); // 拦截 API所有的资源
+        bean.setOrder(1);
+        bean.setAsyncSupported(true);
+        return bean;
+    }
+    @Bean
+    public RequestBodyWrapperFilter getRequestBodyWrapperFilter() {
+        return new RequestBodyWrapperFilter();
     }
 }
