@@ -16,5 +16,6 @@ spring:
           min-idle: 1
           max-active: 1000   #redis连接池中可同时使用的最大连接数
           max-wait: -1  #redis连接池中没有可用连接时，最大的等待时间
+      client-type: jedis  #Spring Data Redis 默认使用 Lettuce 客户端，这里改为使用 Jedis 客户端
 
 
