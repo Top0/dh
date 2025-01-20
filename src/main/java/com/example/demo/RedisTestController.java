@@ -5,6 +5,7 @@ import com.example.demo.entity.Person;
 import jakarta.annotation.Resource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,6 +24,14 @@ public class RedisTestController {
     public String hello(@RequestParam String key, @RequestParam String value) {
         ValueOperations valueOperations = redisTemplate.opsForValue();
         valueOperations.set(key, value);
+        return value;
+    }
+
+    //http://127.0.0.1:8080/redis/pub?key=chat.1111&value=value12
+    @PutMapping("/redis/pub")
+    public String helloPub(@RequestParam String key, @RequestParam String value) {
+        String channel = new ChannelTopic(key).getTopic();
+        redisTemplate.convertAndSend(channel, value);
         return value;
     }
 
